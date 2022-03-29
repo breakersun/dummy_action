@@ -34,6 +34,9 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
       - name: deploy nightly
         uses: WebFreak001/deploy-nightly@v1.1.0
         env:
