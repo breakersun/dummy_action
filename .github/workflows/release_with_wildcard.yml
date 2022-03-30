@@ -7,11 +7,12 @@ on:
 jobs:
   build:
     runs-on: windows-latest
+    permissions:
+      contents: write
     steps:
     - uses: actions/checkout@v1
-    - name: Upload asset to release
-      uses: csexton/release-asset-action@v2
+    - uses: ncipollo/release-action@v1
       with:
-        pattern: "./*.txt"
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-    - run: false
+        artifacts: "*.txt"
+        # bodyFile: "body.md"
+        token: ${{ secrets.GITHUB_TOKEN }}
