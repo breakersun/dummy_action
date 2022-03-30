@@ -1,0 +1,16 @@
+name: Release
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Upload asset to release
+      uses: csexton/release-asset-action@v2
+      with:
+        file: test*.txt
+        github-token: ${{ secrets.GITHUB_TOKEN }}
