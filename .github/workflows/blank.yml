@@ -30,4 +30,4 @@ jobs:
 
       - name: check gitversion
         run: |
-          C:\ProgramData\chocolatey\lib\GitVersion
+          & 'C:\ProgramData\chocolatey\lib\GitVersion'
