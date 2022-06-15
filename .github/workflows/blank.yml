@@ -25,25 +25,10 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
+      - name: install gitversion
+        run: choco install gitversion
 
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+      - name: check gitversion
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
-
-      - name: deploy nightly
-        uses: WebFreak001/deploy-nightly@v1.1.0
-        env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-            upload_url: https://uploads.github.com/repos/breakersun/dummy_action/releases/62991611/assets{?name,label}
-            release_id: 62991611
-            asset_path: ./*.txt
-            asset_name: my-nightly-$$.txt
-            asset_content_type: application/txt
-            max_releases: 7
+          which gitversion
 
