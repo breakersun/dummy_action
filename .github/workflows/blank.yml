@@ -26,8 +26,8 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: install gitversion
-        run: choco install gitversion
+        run: choco install gitversion.portable
 
       - name: check gitversion
-        run: |
-          & 'C:\ProgramData\chocolatey\lib\GitVersion\gitversion'
+        run:
+          which gitversion
